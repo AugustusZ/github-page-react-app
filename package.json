@@ -2,9 +2,11 @@
   "name": "typescript-react-sass-starter",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://augustusz.github.io/github-page-react-app/",
   "devDependencies": {
     "@types/react": "^16.1.0",
     "@types/react-dom": "^16.0.4",
+    "gh-pages": "^1.1.0",
     "node-sass-chokidar": "^1.2.2",
     "npm-run-all": "^4.1.2",
     "react-scripts-ts": "^2.14.0",
@@ -17,10 +19,13 @@
   },
   "scripts": {
     "build-css": "node-sass-chokidar -q src/ -o src/",
-    "watch-css": "npm run build-css && node-sass-chokidar -q src/ -o src/ --watch --recursive",
+    "watch-css":
+      "npm run build-css && node-sass-chokidar -q src/ -o src/ --watch --recursive",
     "start": "HTTPS=false npm-run-all -p watch-css start-ts",
     "build": "npm run build-css && react-scripts-ts build",
     "start-ts": "react-scripts-ts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts-ts test --env=jsdom",
     "eject": "react-scripts-ts eject"
   }
